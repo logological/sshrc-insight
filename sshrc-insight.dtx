@@ -1,0 +1,962 @@
+% \iffalse meta-comment
+%
+% Copyright 2024 Tristan Miller
+% -----------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{sshrc-insight.dtx}
+%</driver>
+%<*class>
+%% Copyright 2024 Tristan Miller
+%% Copyright 2021 Steven B. Segletes
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+%%
+%</class>
+%<class>\NeedsTeXFormat{LaTeX2e}[2018-04-01]
+%<class>\DeclareRelease{2024}{}{sshrc-insight.cls}
+%<class>\DeclareRelease{v2024}{}{sshrc-insight.cls}
+%<class>\DeclareCurrentRelease{v2024.0.0}{2024-10-16}
+%<class>\ProvidesClass{sshrc-insight}
+%<*class>
+[2024-10-16 v2024.0.0 Class for SSHRC Insight Grant proposals]
+%</class>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\DisableCrossrefs
+\CodelineIndex
+\RecordChanges
+\addtolength\marginparwidth{5ex}
+\addtolength\oddsidemargin{6ex}
+\addtolength\evensidemargin{6ex}
+\usepackage[T1]{fontenc}
+\usepackage{hologo}
+\begin{document}
+\DocInput{sshrc-insight.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{199}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \GetFileInfo{sshrc-insight.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+%
+% \title{\textsf{sshrc-insight}: A \LaTeX\ class for\\ SSHRC Insight
+% Grant proposals\thanks{This document corresponds to
+% \textsf{sshrc-insight}~\fileversion, dated \filedate. See
+% §\ref{sec:version} for an explanation of the versioning scheme.}}
+%
+% \author{Tristan Miller\\
+% Department of Computer Science\\
+% University of Manitoba\\
+% \texttt{Tristan.Miller@umanitoba.ca}}
+%
+% \maketitle
+% \tableofcontents
+% \newpage
+%
+% \section{Introduction}\label{sec:introduction}
+%
+% This document describes the usage of \textsf{sshrc-insight}, a
+% \LaTeX\ class and template that facilitate the preparation of
+% funding proposals for the Insight
+% Grants\footnote{\url{https://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/insight_grants-subventions_savoir-eng.aspx}}
+% program of Canada's Social Sciences and Humanities Research Council
+% (SSHRC).  SSHRC requires these proposals to be submitted through an
+% online application form that consists of various short- and
+% long-answer fields, as well as file submission fields where the
+% applicant must attach various PDF documents structured and formatted
+% according to certain specifications.  \textsf{sshrc-insight} allows
+% you to compose the long-answer fields and PDF documents with \LaTeX,
+% \hologo{XeLaTeX}, or \hologo{LuaLaTeX}, with the following benefits:
+%
+% \begin{itemize}
+% \item Formats the PDF documents according to the SSHRC's
+%   specifications.
+%
+% \item Allows parts of the proposal to be compiled into separate PDFs
+%   to attach to the appropriate places in the online application
+%   form.
+%
+% \item Alternatively, allows the proposal to be compiled into a
+%   single PDF in order to facilitate the writing and pre-submission
+%   reviewing process.
+%
+% \item Ensures that citation numbering remains consistent regardless
+%   whether the proposal is compiled as separate PDFs or a single PDF.
+%
+% \item Provides character counts for long-answer form fields.
+%
+% \item Supports preparation of proposals in either English or French.
+% \end{itemize}
+%
+% The current version of \textsf{sshrc-insight} structures and formats
+% proposals according to SSHRC's 2024 call.  It is expected that
+% future versions of the class will support the structure and format
+% of future calls, while maintaining backward compatibility.
+%
+% \section{Usage}
+%
+% SSHRC provides instructions for structuring and formatting the PDF
+% documents to attach to the online application form.  Since form and
+% content cannot be entirely separated, the best way of starting a new
+% proposal is to make a copy of the template proposal distributed with
+% this class and then adapt it to your project.  This template
+% includes the following files:
+%
+% \begin{itemize}
+% \item \texttt{budget\_justification.tex}
+% \item \texttt{career\_interruptions.tex}
+% \item \texttt{detailed\_description.tex}
+% \item \texttt{exclusion\_of\_potential\_reviewers.tex}
+% \item \texttt{expected\_outcomes.tex}
+% \item \texttt{knowledge\_mobilization\_plan.tex}
+% \item \texttt{list\_of\_references.tex}
+% \item \texttt{multi-interdisciplinary\_evaluation.tex}
+% \item \texttt{previous\_critiques.tex}
+% \item \texttt{proposal.tex}
+% \item \texttt{research\_contributions.tex}
+% \item \texttt{research-creation\_support\_material.tex}
+% \item \texttt{research\_team.tex}
+% \item \texttt{summary.tex}
+% \end{itemize}
+%
+% The \texttt{proposal.tex} file is the \emph{main document}.  Compile
+% this file to get a complete draft of your proposal (minus the
+% short-answer fields from the online application form) in a single
+% PDF, including a table of contents.  This makes it convenient for
+% you (and anyone helping you review your proposal before submission)
+% to read all the long-form proposal text.
+%
+% The complete proposal is generated from the other \texttt{.tex}
+% files---the \emph{subfiles}---which are the individual documents and
+% long-answer form fields to be attached to or copied into the online
+% application form.  They can be compiled separately for when you want
+% to work on one part of the proposal at a time, or for when you are
+% ready to attach the individual PDFs to the online application form.
+%
+% The following two subsections describe the structure of the main
+% document and subfiles, as well as the various macros and
+% environments provided by \textsf{sshrc-insight}.
+%
+% \subsection{Main document}
+%
+% \subsubsection{Preamble}\label{sec:mainpreamble}
+%
+% Your main proposal document should begin with the following line:
+% \begin{quote}\verb|\documentclass{sshrc-insight}[=2024]|\end{quote}
+% The optional argument, \texttt{=2024}, indicates that the class
+% should use the specifications from SSHRC's 2024 call for proposals.
+% At present, the only supported specification year is 2024, though
+% future versions of this class may support specifications for future
+% years' calls.  The class will use the most recent supported
+% specification in the event that you omit the optional argument;
+% however, this is not recommended because if you later upgrade
+% \textsf{sshrc-insight} to a version that supports a later
+% specification year, re-compiling your old proposal may result in
+% compilation errors, or incorrect or unexpected formatting.
+% 
+% The \verb|sshrc-insight| class is based on the default \LaTeX\
+% \verb|article| class, so (with a few modifications and exceptions
+% documented below) all of the macros and environments from the latter
+% are available for you to use.
+%
+% The class automatically sets the page size and margins mandated by
+% the official application instructions.  If compiling with
+% \hologo{XeLaTeX} or \hologo{LuaLaTeX}, the class sets the font to
+% Times New Roman, which you are expected to have installed on your
+% system.  If compiling with \hologo{pdfLaTeX}, the class uses the
+% free Times clone provided by the \textsf{newtxtext} and
+% \textsf{newtxmath} packages. (Although this is not strictly in
+% accordance with the application instructions, this is unlikely to
+% cause any problems with the funding agency, since the font metrics
+% are virtually identical to the proprietary Times New Roman.)
+%
+% Following \cs{documentclass} you can include whatever \LaTeX\
+% packages and macros you wish; these will apply to both the main
+% document and the subfiles.  The template proposal includes some
+% sensible defaults that set the document language and the behaviour
+% and appearance of hyperlinks, section headings, and lists, though
+% you are free to remove or adjust these to taste.  (In particular,
+% you may wish to use the \textsf{titlesec} package to further reduce
+% the size of and spacing around section headings.)  The template also
+% sets up the bibliographic referencing and citation system to use
+% \textsf{biblatex} and Biber, for which \textsf{sshrc-insight} has
+% built-in support. (See §\ref{sec:bibliographic} for further
+% details.)
+%
+% You should then provide the proposal metadata using the \cs{title}
+% macro, and optionally also the \cs{author} and \cs{date} macros,
+% which behave as they do in the \verb|article| class.
+%
+% \subsubsection{Document body}
+%
+% As in the \verb|article| class, the main body of the document must
+% be placed in the \verb|document| environment.
+%
+% \DescribeMacro{\maketitle}\DescribeMacro{\tableofcontents}
+% These are generally the first macros that should be called in the
+% main body of the document.  As with the standard \verb|article|
+% class, they typeset the title and table of contents.
+%
+% \DescribeMacro{\subfile}
+% This macro is used to include the subfiles in the main document; it
+% takes the subfile's filename (optionally excluding the \texttt{.tex}
+% extension) as its sole argument.  Each subfile corresponds to a
+% long-answer field that must be filled in the online application
+% form, or a document that must be attached as a PDF to the online
+% application form.  The template proposal includes a list of
+% \cs{subfile} commands (as well as the corresponding template files)
+% for fields and documents that are required by most or all proposals;
+% you should comment out or remove any entries that do not apply to
+% your proposal.
+%
+% You may also wish to include among the \cs{subfile} commands further
+% information or documents that you will be submitting in the
+% application form.  For externally generated PDFs, such as a STRAC
+% attestation form, you may wish to do this via the \textsf{pdfpages}
+% package's \cs{includepdf} command.  Here is an example of how you
+% can do this and have the file appear in the table of contents:
+% \begin{quote}
+% \begin{verbatim}
+% \includepdf[
+%     pages=-,
+%     addtotoc={1,section,1,STRAC Attestation,STRAC}
+%   ]{attestation}
+% \end{verbatim}
+% \end{quote}
+%
+% \subsection{Subfiles}
+%
+% \subsubsection{Preamble}
+%
+% Each subfile must start with the following line:
+% \begin{quote}\cs{documentclass}\oarg{filename}\verb|{subfiles}|\end{quote}
+% Here \meta{filename} must be the filename (\emph{without} the
+% \texttt{.tex} extension) of the main document.
+%
+% The preamble of the subfiles should normally be empty; if you need
+% to import any packages or define any macros, this should be done
+% instead in the preamble of the main document.
+% 
+% \subsubsection{Document body}
+%
+% \DescribeMacro{\subfiletitle}
+% In subfiles, this macro should be used in place of the standard
+% \cs{maketitle} macro.  It takes as its sole argument the title of
+% the subfile.  It prints this title, in a relatively compact format,
+% at the top of the first page of the subfile, and also adds the title
+% to the table of contents of the main document.  If using the
+% \textsf{hyperref} package, the title will also appear in the PDF
+% metadata when the subfile is compiled as a separate file.  As
+% described in §\ref{sec:localization}, English titles that exactly
+% match those specified in the official application instructions will
+% be automatically localized into French when the document language is
+% set to \verb|french|.
+%
+% \DescribeMacro{\subfilesection}\DescribeMacro{\subfilesubsection}
+% These two macros can be used to print an unnumbered (sub)section
+% heading in a subfile.  They function identically to the
+% \verb|article| class's \cs{section*} and \cs{subsection*} except
+% that the arguments are automatically localized, as they are with
+% \cs{subfiletitle}.
+%
+% \DescribeMacro{\countchars} This macro can be used for writing
+% long-answer form data, such as the proposal summary and the response
+% to previous critiques.  Its principal benefit is that, in addition
+% to printing the answer text, it outputs its total character count,
+% thereby helping you keep your text within the length limit specified
+% in the application form.  The macro takes one mandatory argument,
+% which is the text of the answer, and one optional argument, which is
+% the field's length limit in characters:
+% \begin{quote}\cs{countchars}\oarg{length}\marg{text}\end{quote}
+% If the length limit is not specified, it defaults to 3800, which is
+% the limit for all long-answer fields in the 2024 application form.
+%
+% Note that the PDF output of \cs{countchars} is not intended to be
+% used as-is in your final application.  Rather, you should copy and
+% paste its text argument directly from the \LaTeX\ source code into
+% the online application form.  For this reason, please ensure that
+% you write the argument as plain text rather than as \LaTeX\ markup.
+% 
+% \subsection{Bibliographic references}\label{sec:bibliographic}
+%
+% It is recommended to use \textsf{biblatex} and Biber for your
+% bibliographic references and citations, and the template proposal
+% assumes that this is how you have things set up.  Put all your
+% \textsf{biblatex} configuration, and all your \cs{addbibresource}
+% macros, in your main document.  You can then use the usual
+% \textsf{biblatex} commands for citing references and printing
+% bibliographies in the subfiles.  With this setup,
+% \textsf{sshrc-insight} ensures that the numbering of the citations
+% is consistent regardless whether you compile the main proposal file
+% or the individual subfiles.  It does this by having the subfiles
+% read in the main document's Biber-generated \texttt{.bbl} file when
+% the subfiles are compiled individually.  For this reason, it is
+% important that, whenever you add, change, or remove citations and
+% references, you (re)compile the main document \emph{before} you
+% (re)compile the subfiles. It also means that, despite log messages
+% to the contrary, you never need to run Biber on the subfiles.
+%
+% When \textsf{biblatex} is used in conjunction with
+% \textsf{hyperref}, it hyperlinks each citation to the corresponding
+% entry in the list of references.  While this works well when
+% compiling the main document into a single PDF, when compiling the
+% subfiles individually, there is no list of references to link to
+% (since the list of references is itself one of the subfiles).  For
+% this reason, \textsf{sshrc-insight} automatically disables
+% \textsf{biblatex}'s hyperlinks when compiling the subfiles
+% individually.
+%
+% \subsection{Localization}\label{sec:localization}
+%
+% \textsf{sshrc-insight} supports preparation of proposals in either
+% English or French.  Although the document and section titles used by
+% the template proposal are in English, setting the document language
+% to \texttt{french} (via the \textsf{babel} or \textsf{polyglossia}
+% packages) will automatically substitute these with the French
+% equivalents in the PDF output.
+%
+% \section{Class development}
+%
+% \subsection{Source repository and bug tracker}
+%
+% For now, the class's source code is hosted on GitHub at
+% \url{https://github.com/logological/sshrc-insight}.  There you will
+% also find an issue tracker for reporting bugs and feature requests.
+%
+% \subsection{Versioning scheme}\label{sec:version}
+%
+% Each release of the \textsf{sshrc-insight} class carries a version
+% number in the format \textit{year.\allowbreak maj.\allowbreak
+% min}. Here \textit{year} is the latest year of SSHRC's call for
+% proposals whose application specifications are implemented by the
+% class, and \textit{maj} and \textit{min} represent, respectively,
+% major and minor revisions to the class (including any ancillary
+% files, such as the template proposal and documentation).  A major
+% revision is one that includes potentially breaking changes or
+% significant new features; minor revisions are for all other changes.
+% As documented in §\ref{sec:mainpreamble}, the class provides a
+% mechanism that preserves compatibility with earlier versions of the
+% application specifications.
+%
+% \subsection{Version history}
+%
+% \begin{description}
+% \item[v2024.0.0 (2024-10-16)] Initial release.
+% \end{description}
+%
+% \section{Disclaimer}
+%
+% The \textsf{sshrc-insight} class is distributed in the hope that it
+% will be useful, but WITHOUT ANY WARRANTY; without even the implied
+% warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+% PURPOSE. (See the \LaTeX\ Project Public License for further
+% details.)  In particular, users should understand that the
+% \textsf{sshrc-insight} proposal template is wholly unofficial, and
+% its author(s) accept no responsibility for any omissions, errors, or
+% discrepancies with respect to the requirements set forth in the
+% official SSHRC application form, application instructions, and
+% associated documentation.  If you produce a proposal with this
+% template, then you alone are responsible for ensuring that it
+% matches all the official requirements before submitting it to the
+% funding body.
+%
+% \appendix
+%
+% \section{Implementation}
+%
+% \StopEventually{}
+%
+% \subsection*{Basic setup}
+%
+% Import the \textsf{article} class and define some conditionals for
+% detecting the typesetting engine.
+%
+%\iffalse
+%<*class>
+%\fi
+%    \begin{macrocode}
+\LoadClass[12pt,letterpaper]{article}
+
+%% Conditionals for detecting the typesetting engine
+\RequirePackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+%    \end{macrocode}
+%
+% The \textsf{subfiles} package is what allows a proposal to be compiled
+% either into a single PDF or into separate files for each part.  It
+% takes care of most of the work, though later on we need to apply our
+% own extensions.
+%
+%    \begin{macrocode}
+\RequirePackage{subfiles}
+%    \end{macrocode}
+%
+% \subsection*{Font setup}
+%
+% If compiling with \hologo{LuaLaTeX} or \hologo{XeLaTeX}, configure
+% \textsf{fontspec} to use Times New Roman, which is the font
+% specified in the official application instructions.  If compiling
+% with \hologo{pdfLaTeX}, use the Times clone provided by
+% \textsf{newtxtext} and \textsf{newtxmath}.
+%
+%    \begin{macrocode}
+\ifxetexorluatex
+\RequirePackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont{Times New Roman}
+\else
+\RequirePackage[T1]{fontenc} % T1 font encoding
+\RequirePackage{newtxtext} % Use Times for main text
+\RequirePackage{newtxmath} % Use Times for math
+\fi
+%    \end{macrocode}
+%
+% \subsection*{Basic page layout, titles, and headings}
+%
+% Set the page size and margins and disable page numbers.
+% 
+%    \begin{macrocode}
+\RequirePackage[letterpaper,
+                left=0.75in,
+                top=0.75in,
+                bottom=0.75in,
+                right=0.75in,
+               ]{geometry}
+\RequirePackage{nopageno} % No page numbers
+%    \end{macrocode}
+%
+% Compactly format the titles for the individual parts of the
+% proposal, and add them as unnumbered entries to the main document's
+% table of contents.
+%
+%    \begin{macrocode}
+%% Compact title for subfiles
+\RequirePackage[normalem]{ulem}
+\NewDocumentCommand{\subfiletitle}
+  {m}
+  {%
+  \newpage
+  \ifSubfilesClassLoaded{
+      \@ifpackageloaded{hyperref}
+      {\hypersetup{pdftitle=\GetTranslation{#1}}}
+      {}
+    }
+    {\phantomsection\addcontentsline{toc}{section}{\GetTranslation{#1}}}
+  \begingroup
+    \centering\bfseries\MakeUppercase{\uline{\GetTranslation{#1}}}
+    \par
+    \vskip 1.5em%
+  \endgroup
+  \par\@afterindentfalse\@afterheading
+  }
+
+%% Suppress section numbers in table of contents
+\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
+
+%% Localized (sub)section headings
+\NewDocumentCommand{\subfilesection}
+  {m}
+  {\section*{\GetTranslation{#1}}}
+\NewDocumentCommand{\subfilesubsection}
+  {m}
+  {\subsection*{\GetTranslation{#1}}}
+%    \end{macrocode}
+%
+% Provide a mechanism for counting the number of characters in the
+% long-answer form fields so that we know when we've reached the
+% character limit specified in the official application instructions.
+%
+%    \begin{macrocode}
+%% Count characters, adapted from code by Steven B. Segletes at
+%% https://tex.stackexchange.com/a/587567/22603
+\RequirePackage{tokcycle}[2021-03-10]
+\RequirePackage{xcolor}
+\newcounter{wordcount}
+\newcounter{lettercount}
+\newcounter{wordlimit}
+\newif\ifinword
+%% USER PARAMETERS
+\newif\ifrunningcount
+\newif\ifsummarycount
+\def\limitcolor{red}
+\setcounter{wordlimit}{0}
+%%%
+%% \tc@defx is like \def, but expands the replacement text once prior
+%% to assignment
+\newcommand\addtomacro[2]{\tc@defx#1{#1#2}}
+\newcommand\changecolor[1]
+  {\tctestifx{.#1}{}{\addcytoks{\color{#1}{}}%
+  \tc@defx\currentcolor{#1}}}
+\newcommand\dumpword{%
+  \addcytoks[1]{\accumword}%
+  \ifinword\stepcounter{wordcount}\stepcounter{lettercount}
+    \ifrunningcount\addcytoks[x]{$^{\thewordcount,\thelettercount}$}\fi
+    \ifnum\thewordcount=\value{wordlimit}\relax%
+      \changecolor{\limitcolor}\fi
+  \fi%
+  \inwordfalse
+  \def\accumword{}}
+\newcommand\addletter[1]{%
+  \stepcounter{lettercount}%
+  \tctestifcatnx A#1{\inwordtrue}{\dumpword}%
+  \addtomacro\accumword{#1}}
+\xtokcycleenvironment\countem
+  {\addletter{##1}}
+  {\dumpword\groupedcytoks{\processtoks{##1}%
+    \dumpword\expandafter}\expandafter
+    \changecolor\expandafter{\currentcolor}}
+  {\dumpword\addcytoks{##1}}
+  {\dumpword\addcytoks{##1}}
+  {\stripgroupingtrue\def\accumword{}\def\currentcolor{.}
+    \setcounter{wordcount}{0}\setcounter{lettercount}{0}}
+  {\dumpword\ifsummarycount\tcafterenv{%
+    \par(Wordcount=\thewordcount, Lettercount=\thelettercount)}\fi}
+
+\def\characterlimit{3800}
+\newcommand{\countchars}[2][\characterlimit]
+  {\countem #2\endcountem\par\hfill
+    \GetTranslation{Character count:}
+    \thelettercount\ \GetTranslation{of} #1
+  }
+%    \end{macrocode}
+%
+% \subsection*{Bibliography}
+%
+% To enforce consistency in the labelling/numbering of citations when
+% the proposal is compiled into a single PDFs vs.\ multiple PDFs, use
+% \textsf{biblatex-readbbl} to force subfiles to use the \texttt{bbl}
+% file generated for the main file.
+%
+%    \begin{macrocode}
+%% Force subfiles to read the main file's bibliography
+\AtBeginDocument{
+  \ifSubfilesClassLoaded
+    {
+      \@ifpackageloaded{biblatex}
+      {\RequirePackage[bblfile=\preamble@file]{biblatex-readbbl}}
+      {}
+    }
+    {}
+}
+%    \end{macrocode}
+%
+% When \textsf{biblatex} is used with \textsf{hyperref}, it hyperlinks
+% each citation to the corresponding entry in the list of references.
+% This is fine when compiling the proposal into a single PDF, but when
+% compiling the proposal parts individually, there is no list of
+% references to link to.  So when compiling the subfiles individually,
+% we disable the hyperlinks.
+%
+%    \begin{macrocode}
+%% Disable citation hyperlinks in subfiles
+\ifSubfilesClassLoaded{
+    \PassOptionsToPackage{hyperref=false}{biblatex}
+}{}
+%    \end{macrocode}
+%
+% \subsection*{Localizations}
+%
+% Provide French versions of the document titles and section headings
+% specified in the application instructions, as well as a few other
+% user-visible strings emitted by \textsf{sshrc-insight}.
+%
+%    \begin{macrocode}
+%% Localizations
+\RequirePackage{translations}
+\DeclareTranslation{french}{1. Relevant research contributions over the last six years}{1. Contributions pertinentes à la recherche faites au cours des six dernières années}
+\DeclareTranslation{french}{2. Other research contributions}{2. Autres contributions à la recherche}
+\DeclareTranslation{french}{3. Most significant career research contributions}{3. Plus importantes contributions à la recherche faites au cours d'une carrière}
+\DeclareTranslation{french}{4. Contributions to training}{4. Contributions à la formation}
+\DeclareTranslation{french}{Budget Justification}{Justification du budget}
+\DeclareTranslation{french}{Career Interruptions and Special Circumstances}{Interruptions de carrière et circonstances spéciales}
+\DeclareTranslation{french}{Context}{Contexte}
+\DeclareTranslation{french}{Creative outputs}{Réalisations artistiques}
+\DeclareTranslation{french}{Description of previous and ongoing research results}{Description des résultats de recherche les plus récents ou en cours}
+\DeclareTranslation{french}{Description of proposed student training strategies}{Description des stratégies proposées de formation des étudiants}
+\DeclareTranslation{french}{Description of the research team}{Description de l'équipe de recherche}
+\DeclareTranslation{french}{Detailed Description}{Description détaillée}
+\DeclareTranslation{french}{Exclusion of Potential Reviewers}{Exclusion d'évaluateurs éventuels}
+\DeclareTranslation{french}{Expected Outcomes}{Résultats escomptés}
+\DeclareTranslation{french}{Forthcoming contributions}{Contributions à venir}
+\DeclareTranslation{french}{Knowledge Mobilization Plan}{Plan de mobilisation des connaissances}
+\DeclareTranslation{french}{List of References}{Liste des références}
+\DeclareTranslation{french}{Methodology}{Méthodologie}
+\DeclareTranslation{french}{Nonrefereed contributions}{Contributions non soumises à des comités de lecture}
+\DeclareTranslation{french}{Objectives}{Objectifs}
+\DeclareTranslation{french}{Other refereed contributions}{Autres contributions soumises à des comités de lecture}
+\DeclareTranslation{french}{Previous Critiques}{Réponse à des critiques précédentes}
+\DeclareTranslation{french}{Refereed contributions}{Publications soumises à des comités de lecture}
+\DeclareTranslation{french}{Request for Multi/Interdisciplinary Evaluation}{Demande d'évaluation interdisciplinaire ou multidisciplinaire}
+\DeclareTranslation{french}{Research Contributions}{Contributions à la recherche}
+\DeclareTranslation{french}{Research Team, Student Training, Previous Output}{Équipe de recherche, résultats les plus récents et formation des étudiants}
+\DeclareTranslation{french}{Research-creation Support Material}{Documents d'appui liés à la recherche-création}
+\DeclareTranslation{french}{Summary of Proposal}{Résumé de la proposition}
+\DeclareTranslation{french}{Character count:}{Nombre de caractères:}
+\DeclareTranslation{french}{of}{sur}
+%    \end{macrocode}
+%\iffalse
+%</class>
+%<*budgetjustification>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Budget Justification}
+
+%% Enter document text here.
+
+\end{document}
+%</budgetjustification>
+%<*careerinterruptions>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Career Interruptions and Special Circumstances}
+
+%% Enter document text here.
+
+\end{document}
+%</careerinterruptions>
+%<*detaileddescription>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Detailed Description}
+
+\subfilesection{Objectives}
+
+%% Enter section text here.
+
+\subfilesection{Context}
+
+%% Enter section text here.
+
+\subfilesection{Methodology}
+
+%% Enter section text here.
+
+\end{document}
+%</detaileddescription>
+%<*exclusionofpotentialreviewers>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Exclusion of Potential Reviewers}
+
+%% Enter document text here.
+
+\end{document}
+%</exclusionofpotentialreviewers>
+%<*expectedoutcomes>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Expected Outcomes}
+
+%% Enter form text in the command argument below.
+\countchars{}
+
+\end{document}
+%</expectedoutcomes>
+%<*knowledgemobilizationplan>
+\documentclass[proposal]{subfiles}
+\begin{document}
+
+\subfiletitle{Knowledge Mobilization Plan}
+
+%% Enter document text here.
+
+\end{document}
+%</knowledgemobilizationplan>
+%<*listofreferences>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{List of References}
+
+\begin{sloppypar}
+\printbibliography[heading=none]
+\end{sloppypar}
+
+\end{document}
+%</listofreferences>
+%<*multi-interdisciplinaryevaluation>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Request for Multi/Interdisciplinary Evaluation}
+
+%% Enter document text here.
+
+\end{document}
+%</multi-interdisciplinaryevaluation>
+%<*previouscritiques>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Previous Critiques}
+
+%% Enter form text in the command argument below.
+\countchars{}
+
+\end{document}
+%</previouscritiques>
+%<*proposal>
+\documentclass{sshrc-insight}[=2024]
+
+%% This is the main file for a skeleton SSHRC Insight Grant proposal
+%% using the sshrc-insight class.  Compile this file to get a complete
+%% draft of your proposal (minus the short-answer fields from the
+%% online application form) in a single PDF, including a table of
+%% contents.  This makes it convenient for you (and anyone helping you
+%% review your proposal before submission) to read all the long-form
+%% proposal text.
+%%
+%% The complete proposal is generated from the other tex files in this
+%% directory, which are the individual documents and long-answer form
+%% fields to be attached to or copied into the online application form.
+%% They can be compiled separately for when you want to work on one
+%% part of the proposal at a time, or for when you are ready to attach
+%% the individual PDFs to the online application form.
+
+%% Use one of the following two commands to set the hyphenation
+%% patterns, document and section headings, bibliography strings,
+%% etc. to Canadian English or French.
+\usepackage[canadian]{babel}
+%% \usepackage[french]{babel}
+
+%% It is recommended to use biblatex + biber for your references; the
+%% skeleton proposal assumes that this is how you have things set up.
+%% (It may be possible to use bibunits + bibtex instead but this has
+%% not been tested.)  Modify the following lines to configure
+%% biblatex's citation and reference styles to your taste and to
+%% specify the bibliography file(s) you want to use.
+\usepackage{csquotes}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+%% The following (optional) block of commands enables hyperlinks and
+%% PDF metadata, and ensures URLs are set in Times (New Roman).  Remove
+%% or tweak if desired.
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{%
+    colorlinks=true,
+    breaklinks=true,
+    urlcolor=black,
+    linkcolor=black,
+    citecolor=black,
+    linktoc=all,
+}
+\urlstyle{rm}
+
+%% The following (optional) block of commands tightens up the layout to
+%% save space.  Remove or tweak if desired.
+\usepackage{microtype}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\usepackage[compact]{titlesec}
+
+%% Enter the title and author(s) of your proposal here.
+\title{My proposal}
+\author{My name}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+%% Remove or comment out any of the following sections that don't apply
+%% to your proposal.
+\subfile{previous_critiques}
+\subfile{multi-interdisciplinary_evaluation}
+\subfile{summary}
+\subfile{detailed_description}
+\subfile{knowledge_mobilization_plan}
+\subfile{list_of_references}
+\subfile{research-creation_support_material}
+\subfile{research_team}
+\subfile{budget_justification}
+\subfile{expected_outcomes}
+\subfile{exclusion_of_potential_reviewers}
+\subfile{research_contributions}
+\subfile{career_interruptions}
+
+%% If you wish, you could include further documents you will be
+%% attaching to the final submission.  For externally generated PDFs,
+%% you should add \usepackage{pdfpages} to the document preamble. Here
+%% is an example of how you might include your STRAC attestation (from
+%% a file named attestation.pdf) and add it to the table of contents:
+%%
+%% \includepdf[
+%%     pages=-,
+%%     addtotoc={1,section,1,STRAC Attestation,STRAC}
+%%   ]{attestation}
+
+\end{document}
+%</proposal>
+%<*researchcontributions>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Research Contributions}
+
+\subfilesection{1. Relevant research contributions over the last six years}
+
+%% Delete any of the subsections below that do not apply to your
+%% research contributions.
+
+\subfilesubsection{Refereed contributions}
+
+\begin{refcontext}[sorting=ydnt]
+\begin{refsection}{}
+  \nocite{% Add citation keys to your "refereed contributions" here.
+  }
+\begin{sloppypar}
+    \printbibliography[heading=none]
+\end{sloppypar}
+\end{refsection}{}
+\end{refcontext}
+
+\subfilesubsection{Other refereed contributions}
+
+\begin{refcontext}[sorting=ydnt]
+\begin{refsection}{}
+  \nocite{% Add citation keys to your "other refereed contributions" here.
+  }
+\begin{sloppypar}
+    \printbibliography[heading=none]
+\end{sloppypar}
+\end{refsection}{}
+\end{refcontext}
+
+\subfilesubsection{Nonrefereed contributions}
+
+\begin{refcontext}[sorting=ydnt]
+\begin{refsection}{}
+  \nocite{% Add citation keys to your "nonrefereed contributions" here.
+  }
+\begin{sloppypar}
+    \printbibliography[heading=none]
+\end{sloppypar}
+\end{refsection}{}
+\end{refcontext}
+
+\subfilesubsection{Forthcoming contributions}
+
+\begin{refcontext}[sorting=ydnt]
+\begin{refsection}{}
+  \nocite{% Add citation keys to your "forthcoming contributions" here.
+  }
+\begin{sloppypar}
+    \printbibliography[heading=none]
+\end{sloppypar}
+\end{refsection}{}
+\end{refcontext}
+
+\subfilesubsection{Creative outputs}
+
+\begin{refcontext}[sorting=ydnt]
+\begin{refsection}{}
+  \nocite{% Add citation keys to your "creative outputs" here.
+  }
+\begin{sloppypar}
+    \printbibliography[heading=none]
+\end{sloppypar}
+\end{refsection}{}
+\end{refcontext}
+
+\subfilesection{2. Other research contributions}
+
+%% Enter section text here.
+
+\subfilesection{3. Most significant career research contributions}
+
+%% Enter section text here.
+
+\subfilesection{4. Contributions to training}
+
+%% Enter section text here.
+
+\end{document}
+%</researchcontributions>
+%<*research-creationsupportmaterial>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Research-creation Support Material}
+
+%% Enter document text here.
+
+\end{document}
+%</research-creationsupportmaterial>
+%<*researchteam>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Research Team, Student Training, Previous Output}
+
+\subfilesection{Description of the research team}
+
+%% Enter section text here.
+
+\subfilesection{Description of previous and ongoing research results}
+
+%% Enter section text here.
+
+\subfilesection{Description of proposed student training strategies}
+
+%% Enter section text here.
+
+\end{document}
+%</researchteam>
+%<*summary>
+\documentclass[proposal]{subfiles}
+\begin{document}
+\subfiletitle{Summary of Proposal}
+
+%% Enter form text in the command argument below.
+\countchars{}
+
+\end{document}
+%</summary>
+% \fi
+% \Finale
+
