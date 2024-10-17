@@ -43,7 +43,10 @@ various parts of the proposal, use the same procedure on the other
 `.tex` files.  Note that `proposal.tex` must be compiled before the
 other files that use citation commands.
 
-## Source repository and bug tracker
+## Development
+
+`sshrc-insight` was written and is maintained by [Tristan
+Miller](https://logological.org/).
 
 For now, the source code is hosted on GitHub at
 [https://github.com/logological/sshrc-insight](https://github.com/logological/sshrc-insight).
