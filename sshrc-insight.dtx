@@ -33,10 +33,10 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[2018-04-01]
 %<class>\DeclareRelease{2024}{}{sshrc-insight.cls}
 %<class>\DeclareRelease{v2024}{}{sshrc-insight.cls}
-%<class>\DeclareCurrentRelease{v2024.0.0}{2024-10-16}
+%<class>\DeclareCurrentRelease{v2024.0.1}{2024-10-17}
 %<class>\ProvidesClass{sshrc-insight}
 %<*class>
-[2024-10-16 v2024.0.0 Class for SSHRC Insight Grant proposals]
+[2024-10-17 v2024.0.1 Class for SSHRC Insight Grant proposals]
 %</class>
 %
 %<*driver>
@@ -152,19 +152,19 @@
 % \item \texttt{list\_of\_references.tex}
 % \item \texttt{multi-interdisciplinary\_evaluation.tex}
 % \item \texttt{previous\_critiques.tex}
-% \item \texttt{proposal.tex}
+% \item \texttt{insight\_proposal.tex}
 % \item \texttt{research\_contributions.tex}
 % \item \texttt{research-creation\_support\_material.tex}
 % \item \texttt{research\_team.tex}
 % \item \texttt{summary.tex}
 % \end{itemize}
 %
-% The \texttt{proposal.tex} file is the \emph{main document}.  Compile
-% this file to get a complete draft of your proposal (minus the
-% short-answer fields from the online application form) in a single
-% PDF, including a table of contents.  This makes it convenient for
-% you (and anyone helping you review your proposal before submission)
-% to read all the long-form proposal text.
+% The \texttt{insight\_proposal.tex} file is the \emph{main document}.
+% Compile this file to get a complete draft of your proposal (minus
+% the short-answer fields from the online application form) in a
+% single PDF, including a table of contents.  This makes it convenient
+% for you (and anyone helping you review your proposal before
+% submission) to read all the long-form proposal text.
 %
 % The complete proposal is generated from the other \texttt{.tex}
 % files---the \emph{subfiles}---which are the individual documents and
@@ -381,6 +381,7 @@
 % \subsection{Version history}
 %
 % \begin{description}
+% \item[v2024.0.1 (2024-10-17)] Refactored files for CTAN.
 % \item[v2024.0.0 (2024-10-16)] Initial release.
 % \end{description}
 %
@@ -647,7 +648,7 @@
 %\iffalse
 %</class>
 %<*budgetjustification>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Budget Justification}
 
@@ -656,7 +657,7 @@
 \end{document}
 %</budgetjustification>
 %<*careerinterruptions>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Career Interruptions and Special Circumstances}
 
@@ -665,7 +666,7 @@
 \end{document}
 %</careerinterruptions>
 %<*detaileddescription>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Detailed Description}
 
@@ -684,7 +685,7 @@
 \end{document}
 %</detaileddescription>
 %<*exclusionofpotentialreviewers>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Exclusion of Potential Reviewers}
 
@@ -693,7 +694,7 @@
 \end{document}
 %</exclusionofpotentialreviewers>
 %<*expectedoutcomes>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Expected Outcomes}
 
@@ -703,7 +704,7 @@
 \end{document}
 %</expectedoutcomes>
 %<*knowledgemobilizationplan>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 
 \subfiletitle{Knowledge Mobilization Plan}
@@ -713,7 +714,7 @@
 \end{document}
 %</knowledgemobilizationplan>
 %<*listofreferences>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{List of References}
 
@@ -724,7 +725,7 @@
 \end{document}
 %</listofreferences>
 %<*multi-interdisciplinaryevaluation>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Request for Multi/Interdisciplinary Evaluation}
 
@@ -733,7 +734,7 @@
 \end{document}
 %</multi-interdisciplinaryevaluation>
 %<*previouscritiques>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Previous Critiques}
 
@@ -742,7 +743,7 @@
 
 \end{document}
 %</previouscritiques>
-%<*proposal>
+%<*insightproposal>
 \documentclass{sshrc-insight}[=2024]
 
 %% This is the main file for a skeleton SSHRC Insight Grant proposal
@@ -798,7 +799,7 @@
 \usepackage[compact]{titlesec}
 
 %% Enter the title and author(s) of your proposal here.
-\title{My proposal}
+\title{My SSHRC Insight proposal}
 \author{My name}
 
 \begin{document}
@@ -834,9 +835,9 @@
 %%   ]{attestation}
 
 \end{document}
-%</proposal>
+%</insightproposal>
 %<*researchcontributions>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Research Contributions}
 
@@ -920,7 +921,7 @@
 \end{document}
 %</researchcontributions>
 %<*research-creationsupportmaterial>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Research-creation Support Material}
 
@@ -929,7 +930,7 @@
 \end{document}
 %</research-creationsupportmaterial>
 %<*researchteam>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Research Team, Student Training, Previous Output}
 
@@ -948,7 +949,7 @@
 \end{document}
 %</researchteam>
 %<*summary>
-\documentclass[proposal]{subfiles}
+\documentclass[insight_proposal]{subfiles}
 \begin{document}
 \subfiletitle{Summary of Proposal}
 

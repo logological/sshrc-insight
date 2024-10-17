@@ -20,20 +20,20 @@ DOCDIR=doc/latex/sshrc-insight
 
 GENERATED_EXTENSIONS=aux bbl bcf blg idx log out pdf run.xml synctex.gz gls ilg toc
 
-TEMPLATE_PROPOSAL=budget_justification.tex career_interruptions.tex detailed_description.tex exclusion_of_potential_reviewers.tex expected_outcomes.tex knowledge_mobilization_plan.tex list_of_references.tex multi-interdisciplinary_evaluation.tex previous_critiques.tex proposal.tex research_contributions.tex research-creation_support_material.tex research_team.tex summary.tex
+TEMPLATE_PROPOSAL=budget_justification.tex career_interruptions.tex detailed_description.tex exclusion_of_potential_reviewers.tex expected_outcomes.tex knowledge_mobilization_plan.tex list_of_references.tex multi-interdisciplinary_evaluation.tex previous_critiques.tex insight_proposal.tex research_contributions.tex research-creation_support_material.tex research_team.tex summary.tex
 SSHRC_INS_FILES=sshrc-insight.cls $(TEMPLATE_PROPOSAL)
 
-# Build the class, template proposal, and documentation
-all: proposal.pdf sshrc-insight.pdf
+# Build the class, template insight_proposal, and documentation
+all: insight_proposal.pdf sshrc-insight.pdf
 
 # Extract the source files from sshrc-insight.dtx
 $(SSHRC_INS_FILES): sshrc-insight.ins sshrc-insight.dtx
 	$(PDFLATEX) sshrc-insight.ins
 
-# Build the template proposal
-proposal.pdf: $(SSHRC_INS_FILES)
-	$(PDFLATEX) proposal.tex
-	$(PDFLATEX) proposal.tex
+# Build the template insight_proposal
+insight_proposal.pdf: $(SSHRC_INS_FILES)
+	$(PDFLATEX) insight_proposal.tex
+	$(PDFLATEX) insight_proposal.tex
 
 # Build the documentation
 sshrc-insight.pdf: sshrc-insight.dtx
@@ -42,8 +42,8 @@ sshrc-insight.pdf: sshrc-insight.dtx
 	$(PDFLATEX) sshrc-insight.dtx
 
 # Package sshrc for distribution on CTAN
-sshrc-insight.tar.gz dist ctanify: proposal.pdf sshrc-insight.pdf README.md
-	$(CTANIFY) sshrc-insight.ins sshrc-insight.pdf proposal.pdf README.md proposal.tex=$(DOCDIR) $(foreach file,$(TEMPLATE_PROPOSAL),$(file)=$(DOCDIR))
+sshrc-insight.tar.gz dist ctanify: insight_proposal.pdf sshrc-insight.pdf README.md
+	$(CTANIFY) sshrc-insight.ins sshrc-insight.pdf insight_proposal.pdf README.md insight_proposal.tex=$(DOCDIR) $(foreach file,$(TEMPLATE_PROPOSAL),$(file)=$(DOCDIR))
 
 # Remove all generated files
 clean:
