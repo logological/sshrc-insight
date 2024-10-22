@@ -33,10 +33,10 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[2018-04-01]
 %<class>\DeclareRelease{2024}{}{sshrc-insight.cls}
 %<class>\DeclareRelease{v2024}{}{sshrc-insight.cls}
-%<class>\DeclareCurrentRelease{v2024.0.1}{2024-10-17}
+%<class>\DeclareCurrentRelease{v2024.1.0}{2024-10-21}
 %<class>\ProvidesClass{sshrc-insight}
 %<*class>
-[2024-10-17 v2024.0.1 Class for SSHRC Insight Grant proposals]
+[2024-10-21 v2024.1.0 Class for SSHRC Insight Grant proposals]
 %</class>
 %
 %<*driver>
@@ -55,7 +55,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{199}
+% \CheckSum{219}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -106,7 +106,8 @@
 % applicant must attach various PDF documents structured and formatted
 % according to certain specifications.  \textsf{sshrc-insight} allows
 % you to compose the long-answer fields and PDF documents with \LaTeX,
-% \hologo{XeLaTeX}, or \hologo{LuaLaTeX}, with the following benefits:
+% \hologo{XeLaTeX}, or \hologo{LuaLaTeX}, with the following principal
+% benefits:
 %
 % \begin{itemize}
 % \item Formats the PDF documents according to the SSHRC's
@@ -152,11 +153,12 @@
 % \item \texttt{list\_of\_references.tex}
 % \item \texttt{multi-interdisciplinary\_evaluation.tex}
 % \item \texttt{previous\_critiques.tex}
-% \item \texttt{insight\_proposal.tex}
 % \item \texttt{research\_contributions.tex}
 % \item \texttt{research-creation\_support\_material.tex}
 % \item \texttt{research\_team.tex}
 % \item \texttt{summary.tex}
+% \item \texttt{insight\_proposal.tex}
+% \item \texttt{insight\_proposal.bib}
 % \end{itemize}
 %
 % The \texttt{insight\_proposal.tex} file is the \emph{main document}.
@@ -172,6 +174,11 @@
 % application form.  They can be compiled separately for when you want
 % to work on one part of the proposal at a time, or for when you are
 % ready to attach the individual PDFs to the online application form.
+%
+% The file \texttt{insight\_proposal.bib} is a sample bibliography
+% demonstrating \textsf{sshrc-insight}'s features for marking
+% publications according to the application instructions---see
+% §\ref{sec:bibliographic} for further details.
 %
 % The following two subsections describe the structure of the main
 % document and subfiles, as well as the various macros and
@@ -317,7 +324,7 @@
 % the online application form.  For this reason, please ensure that
 % you write the argument as plain text rather than as \LaTeX\ markup.
 % 
-% \subsection{Bibliographic references}\label{sec:bibliographic}
+% \subsection{Bibliographic references and research contributions}\label{sec:bibliographic}
 %
 % It is recommended to use \textsf{biblatex} and Biber for your
 % bibliographic references and citations, and the template proposal
@@ -325,7 +332,18 @@
 % \textsf{biblatex} configuration, and all your \cs{addbibresource}
 % macros, in your main document.  You can then use the usual
 % \textsf{biblatex} commands for citing references and printing
-% bibliographies in the subfiles.  With this setup,
+% bibliographies in the subfiles. The
+% \texttt{list\_of\_references.tex} file of the template proposal
+% gives an example of how to print a master bibliography for citations
+% across the various subfiles, and the
+% \texttt{research\_contributions.tex} file shows how to print
+% self-contained bibliographies for one's own research contributions,
+% broken down according to the categories specified in the application
+% instructions.
+%
+% \subsubsection{Citation numbering}
+%
+% When using \textsf{biblatex} as described above,
 % \textsf{sshrc-insight} ensures that the numbering of the citations
 % is consistent regardless whether you compile the main proposal file
 % or the individual subfiles.  It does this by having the subfiles
@@ -336,6 +354,8 @@
 % (re)compile the subfiles. It also means that, despite log messages
 % to the contrary, you never need to run Biber on the subfiles.
 %
+% \subsubsection{Hyperlinks}
+%
 % When \textsf{biblatex} is used in conjunction with
 % \textsf{hyperref}, it hyperlinks each citation to the corresponding
 % entry in the list of references.  While this works well when
@@ -345,6 +365,88 @@
 % this reason, \textsf{sshrc-insight} automatically disables
 % \textsf{biblatex}'s hyperlinks when compiling the subfiles
 % individually.
+%
+% \subsubsection{Marking student authors}
+%
+% The official application instructions for the ``Research
+% Contributions'' document indicate that student authors should be
+% identified with a plus sign.  \textsf{sshrc-insight} takes care of
+% this when printing bibliographic references by means of a
+% \textsf{biblatex} data annotation, \texttt{student}.  To use this
+% feature, simply add a \hologo{BibTeX} field in the following format
+% to any entry with a student author:
+% \begin{quote}
+%   \texttt{author+an = \{}\meta{n}\texttt{=student} $\big [$
+%   \texttt{;}\meta{n}\texttt{=student} $\big ]$ \dots\ \texttt{\},}
+% \end{quote}
+% where each \meta{n} is the position of a student in the author list.
+% For example, the \hologo{BibTeX} entry
+% \begin{quote}
+% \begin{verbatim}
+% @article{art1,
+%   author    = {Ferenc Farkas and Lili Lakatos and Fruzsina Fekete},
+%   author+an = {1=student;3=student},
+%   title     = {A new approach to underwater basket-weaving},
+%   journal   = {Journal of Underwater Basket-weaving},
+%   pages     = {107--113},
+%   year      = 2024,
+% }\end{verbatim}
+% \end{quote}
+% will be formatted in the reference lists as follows (modulo whatever
+% bibliography styles you may have applied):
+% \begin{quote}
+%   Ferenc Farkas\textsuperscript{+}, Lili Lakatos, and Fruzsina
+%   Fekete\textsuperscript{+}. ``A new approach to underwater
+%   basket-weaving''. In: \emph{Journal of Underwater Basket-weaving}
+%   (2024), pp.\,107--113.
+% \end{quote}
+% Note that student authors will be marked not just in the reference
+% lists but also in the citations: a citation to the entry above might
+% appear as ``(Farkas\textsuperscript{+} et al., 2024)''.
+%
+% \DescribeMacro{\sshrcstudent}
+% Outside bibliographies, the \cs{sshrcstudent} macro can be used for
+% the same effect; it simply outputs a superscripted plus sign.
+%
+% \subsubsection{Marking SSHRC-supported research contributions}
+%
+% The official application instructions for the ``Research
+% Contributions'' document indicate that research contributions
+% resulting from previous SSHRC support should be identified with an
+% asterisk in the left margin. \textsf{sshrc-insight} takes care of
+% this when printing bibliographic references by means of a
+% \textsf{biblatex} keyword, \texttt{sshrc}.  To use this feature,
+% simply add the following \hologo{BibTeX} field to any entry that
+% resulted from previous SSHRC support:
+% \begin{quote}
+%   \texttt{keywords = \{sshrc\},}
+% \end{quote}
+% (If the entry already contains a \texttt{keywords} field, you can
+% simply add \texttt{sshrc} to its list of values, which are normally
+% separated with commas.)  For example, the \hologo{BibTeX} entry
+% \begin{quote}
+% \begin{verbatim}
+% @article{art2,
+%   author    = {Lili Lakatos},
+%   title     = {An old approach to underwater basket-weaving},
+%   journal   = {Journal of Underwater Basket-weaving},
+%   pages     = {21--35},
+%   year      = 2021,
+%   keywords  = {sshrc},
+% }\end{verbatim}
+% \end{quote}
+% will be formatted in the reference lists as follows (modulo whatever
+% bibliography styles you may have applied):
+% \begin{quote}
+%   \makebox[0pt][r]{\textasteriskcentered~}Lili Lakatos. ``An old
+%   approach to underwater basket-weaving''. In: \emph{Journal of
+%   Underwater Basket-weaving} (2021), pp.\,21--35.
+% \end{quote}
+%
+% \DescribeMacro{\sshrcsupported}
+% Outside bibliographies, the \cs{sshrcsupported} macro can be used
+% for the same effect; it simply outputs an asterisk in the left
+% margin.
 %
 % \subsection{Localization}\label{sec:localization}
 %
@@ -381,6 +483,8 @@
 % \subsection{Version history}
 %
 % \begin{description}
+% \item[v2024.1.0 (2024-10-21)] Added support for marking research
+%   contributions according to the official application instructions.
 % \item[v2024.0.1 (2024-10-17)] Refactored files for CTAN.
 % \item[v2024.0.0 (2024-10-16)] Initial release.
 % \end{description}
@@ -571,7 +675,38 @@
   }
 %    \end{macrocode}
 %
+% A command for marking SSHRC-supported contributions (outside of
+% bibliographies) with an asterisk in the left margin:
+%
+%    \begin{macrocode}
+\reversemarginpar
+\NewDocumentCommand{\sshrcsupported}
+  {}
+  {%
+    \leavevmode%
+    \marginparsep=0pt%
+    \marginpar{\raggedleft\mbox{\textasteriskcentered~}}%
+  }
+%    \end{macrocode}
+%
 % \subsection*{Bibliography}
+%
+% A command for marking student authors in the bibliography (or
+% elsewhere):
+%
+%    \begin{macrocode}
+\NewDocumentCommand{\sshrcstudent}
+  {}
+  {\textsuperscript{+}}
+%    \end{macrocode}
+%
+% If \textsf{biblatex} is used, we provide some convenient features.
+%
+%    \begin{macrocode}
+\AtBeginDocument{
+  \@ifpackageloaded{biblatex}
+  {
+%    \end{macrocode}
 %
 % To enforce consistency in the labelling/numbering of citations when
 % the proposal is compiled into a single PDFs vs.\ multiple PDFs, use
@@ -579,15 +714,38 @@
 % file generated for the main file.
 %
 %    \begin{macrocode}
-%% Force subfiles to read the main file's bibliography
-\AtBeginDocument{
-  \ifSubfilesClassLoaded
+    \ifSubfilesClassLoaded
     {
-      \@ifpackageloaded{biblatex}
-      {\RequirePackage[bblfile=\preamble@file]{biblatex-readbbl}}
-      {}
+        % Force subfiles to read the main file's bibliography
+        \RequirePackage[bblfile=\preamble@file]{biblatex-readbbl}
     }
     {}
+%    \end{macrocode}
+%
+% Provide a mechanism to mark student authors with a plus, per the
+% official application instructions.
+%
+%    \begin{macrocode}
+    \renewcommand*{\mkbibnamefamily}[1]{%
+      \ifitemannotation{student}
+        {#1\sshrcstudent}
+        {#1}%
+    }
+%    \end{macrocode}
+%
+% Provide a mechanism to mark previous SSHRC-supported contributions
+% with an asterisk in the left margin, per the official application
+% instructions.
+%
+%    \begin{macrocode}
+    \renewbibmacro*{begentry}
+      {%
+        \ifkeyword{sshrc}
+          {\makebox[0pt][r]{\textasteriskcentered~}}
+          {}%
+      }
+  }
+  {}
 }
 %    \end{macrocode}
 %
@@ -775,7 +933,7 @@
 %% specify the bibliography file(s) you want to use.
 \usepackage{csquotes}
 \usepackage[style=authoryear]{biblatex}
-\addbibresource{biblatex-examples.bib}
+\addbibresource{insight_proposal.bib}
 
 %% The following (optional) block of commands enables hyperlinks and
 %% PDF metadata, and ensures URLs are set in Times (New Roman).  Remove
@@ -958,6 +1116,24 @@
 
 \end{document}
 %</summary>
+%<*insightproposalbib>
+@article{art1,
+  author    = {Ferenc Farkas and Lili Lakatos and Fruzsina Fekete},
+  author+an = {1=student;3=student},
+  title     = {A new approach to underwater basket-weaving},
+  journal   = {Journal of Underwater Basket-weaving},
+  pages     = {107--113},
+  year      = 2024,
+}
+
+@article{art2,
+  author    = {Lili Lakatos},
+  title     = {An old approach to underwater basket-weaving},
+  journal   = {Journal of Underwater Basket-weaving},
+  pages     = {21--35},
+  year      = 2021,
+  keywords  = {sshrc},
+}
+%</insightproposalbib>
 % \fi
 % \Finale
-

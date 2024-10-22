@@ -20,7 +20,7 @@ DOCDIR=doc/latex/sshrc-insight
 
 GENERATED_EXTENSIONS=aux bbl bcf blg idx log out pdf run.xml synctex.gz gls ilg toc
 
-TEMPLATE_PROPOSAL=budget_justification.tex career_interruptions.tex detailed_description.tex exclusion_of_potential_reviewers.tex expected_outcomes.tex knowledge_mobilization_plan.tex list_of_references.tex multi-interdisciplinary_evaluation.tex previous_critiques.tex insight_proposal.tex research_contributions.tex research-creation_support_material.tex research_team.tex summary.tex
+TEMPLATE_PROPOSAL=insight_proposal.tex insight_proposal.bib budget_justification.tex career_interruptions.tex detailed_description.tex exclusion_of_potential_reviewers.tex expected_outcomes.tex knowledge_mobilization_plan.tex list_of_references.tex multi-interdisciplinary_evaluation.tex previous_critiques.tex research_contributions.tex research-creation_support_material.tex research_team.tex summary.tex
 SSHRC_INS_FILES=sshrc-insight.cls $(TEMPLATE_PROPOSAL)
 
 # Build the class, template insight_proposal, and documentation
