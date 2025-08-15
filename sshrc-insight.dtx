@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright 2024 Tristan Miller
+% Copyright 2024, 2025 Tristan Miller
 % -----------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -18,7 +18,7 @@
 \ProvidesFile{sshrc-insight.dtx}
 %</driver>
 %<*class>
-%% Copyright 2024 Tristan Miller
+%% Copyright 2024, 2025 Tristan Miller
 %% Copyright 2021 Steven B. Segletes
 %%
 %% This work may be distributed and/or modified under the
@@ -31,12 +31,15 @@
 %%
 %</class>
 %<class>\NeedsTeXFormat{LaTeX2e}[2018-04-01]
-%<class>\DeclareRelease{2024}{}{sshrc-insight.cls}
-%<class>\DeclareRelease{v2024}{}{sshrc-insight.cls}
-%<class>\DeclareCurrentRelease{v2024.1.0}{2024-10-21}
+%<class>\DeclareRelease{2024}{2024-10-12}{sshrc-insight-2024-10-12.cls}
+%<class>\DeclareRelease{v2024}{2024-10-12}{sshrc-insight-2024-10-12.cls}
+%<class>\DeclareRelease{v2024.1.0}{2024-10-12}{sshrc-insight-2024-10-12.cls}
+%<class>\DeclareRelease{2025}{}{sshrc-insight.cls}
+%<class>\DeclareRelease{v2025}{}{sshrc-insight.cls}
+%<class>\DeclareCurrentRelease{v2025.0.0}{2025-08-14}
 %<class>\ProvidesClass{sshrc-insight}
 %<*class>
-[2024-10-21 v2024.1.0 Class for SSHRC Insight Grant proposals]
+[2025-08-14 v2025.0.0 Class for SSHRC Insight Grant proposals]
 %</class>
 %
 %<*driver>
@@ -55,7 +58,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{219}
+% \CheckSum{220}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -98,7 +101,7 @@
 % This document describes the usage of \textsf{sshrc-insight}, a
 % \LaTeX\ class and template that facilitate the preparation of
 % funding proposals for the Insight
-% Grants\footnote{\url{https://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/insight_grants-subventions_savoir-eng.aspx}}
+% Grants\footnote{\url{https://sshrc-crsh.canada.ca/en/funding/opportunities/insight-grants.aspx}}
 % program of Canada's Social Sciences and Humanities Research Council
 % (SSHRC).  SSHRC requires these proposals to be submitted through an
 % online application form that consists of various short- and
@@ -189,15 +192,15 @@
 % \subsubsection{Preamble}\label{sec:mainpreamble}
 %
 % Your main proposal document should begin with the following line:
-% \begin{quote}\verb|\documentclass{sshrc-insight}[=2024]|\end{quote}
-% The optional argument, \texttt{=2024}, indicates that the class
-% should use the specifications from SSHRC's 2024 call for proposals.
-% At present, the only supported specification year is 2024, though
-% future versions of this class may support specifications for future
-% years' calls.  The class will use the most recent supported
-% specification in the event that you omit the optional argument;
-% however, this is not recommended because if you later upgrade
-% \textsf{sshrc-insight} to a version that supports a later
+% \begin{quote}\verb|\documentclass{sshrc-insight}[=2025]|\end{quote}
+% The optional argument, \texttt{=2025}, indicates that the class
+% should use the specifications from SSHRC's 2025 call for proposals.
+% At present, the only supported specification years are 2024 and
+% 2025, and future versions of this class may support specifications
+% for future years' calls.  The class will use the most recent
+% supported specification in the event that you omit the optional
+% argument; however, this is not recommended because if you later
+% upgrade \textsf{sshrc-insight} to a version that supports a later
 % specification year, re-compiling your old proposal may result in
 % compilation errors, or incorrect or unexpected formatting.
 % 
@@ -316,7 +319,7 @@
 % the field's length limit in characters:
 % \begin{quote}\cs{countchars}\oarg{length}\marg{text}\end{quote}
 % If the length limit is not specified, it defaults to 3800, which is
-% the limit for all long-answer fields in the 2024 application form.
+% the limit for all long-answer fields in the 2025 application form.
 %
 % Note that the PDF output of \cs{countchars} is not intended to be
 % used as-is in your final application.  Rather, you should copy and
@@ -483,6 +486,8 @@
 % \subsection{Version history}
 %
 % \begin{description}
+% \item[v2025.0.0 (2025-08-14)] Added support for the 2025
+%   specification year.
 % \item[v2024.1.0 (2024-10-21)] Added support for marking research
 %   contributions according to the official application instructions.
 % \item[v2024.0.1 (2024-10-17)] Refactored files for CTAN.
@@ -799,6 +804,7 @@
 \DeclareTranslation{french}{Research Contributions}{Contributions à la recherche}
 \DeclareTranslation{french}{Research Team, Student Training, Previous Output}{Équipe de recherche, résultats les plus récents et formation des étudiants}
 \DeclareTranslation{french}{Research-creation Support Material}{Documents d'appui liés à la recherche-création}
+\DeclareTranslation{french}{Response to Previous Critiques}{Réponse à des critiques précédentes}
 \DeclareTranslation{french}{Summary of Proposal}{Résumé de la proposition}
 \DeclareTranslation{french}{Character count:}{Nombre de caractères:}
 \DeclareTranslation{french}{of}{sur}
@@ -894,7 +900,7 @@
 %<*previouscritiques>
 \documentclass[insight_proposal]{subfiles}
 \begin{document}
-\subfiletitle{Previous Critiques}
+\subfiletitle{Response to Previous Critiques}
 
 %% Enter form text in the command argument below.
 \countchars{}
@@ -902,7 +908,7 @@
 \end{document}
 %</previouscritiques>
 %<*insightproposal>
-\documentclass{sshrc-insight}[=2024]
+\documentclass{sshrc-insight}[=2025]
 
 %% This is the main file for a skeleton SSHRC Insight Grant proposal
 %% using the sshrc-insight class.  Compile this file to get a complete

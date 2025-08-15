@@ -2,7 +2,7 @@
 # This Makefile can be used to build the sshrc-insight class and
 # package it for distribution on CTAN.
 #
-# Copyright 2024 Tristan Miller
+# Copyright 2024, 2025 Tristan Miller
 #
 # This work may be distributed and/or modified under the
 # conditions of the LaTeX Project Public License, either version 1.3c
@@ -22,6 +22,7 @@ GENERATED_EXTENSIONS=aux bbl bcf blg idx log out pdf run.xml synctex.gz gls ilg 
 
 TEMPLATE_PROPOSAL=insight_proposal.tex insight_proposal.bib budget_justification.tex career_interruptions.tex detailed_description.tex exclusion_of_potential_reviewers.tex expected_outcomes.tex knowledge_mobilization_plan.tex list_of_references.tex multi-interdisciplinary_evaluation.tex previous_critiques.tex research_contributions.tex research-creation_support_material.tex research_team.tex summary.tex
 SSHRC_INS_FILES=sshrc-insight.cls $(TEMPLATE_PROPOSAL)
+SSHRC_PREVIOUS_VERSIONS=2024-10-12
 
 # Build the class, template insight_proposal, and documentation
 all: insight_proposal.pdf sshrc-insight.pdf
@@ -42,12 +43,11 @@ sshrc-insight.pdf: sshrc-insight.dtx
 	$(PDFLATEX) sshrc-insight.dtx
 
 # Package sshrc for distribution on CTAN
-sshrc-insight.tar.gz dist ctanify: insight_proposal.pdf sshrc-insight.pdf README.md
-	$(CTANIFY) sshrc-insight.ins sshrc-insight.pdf insight_proposal.pdf README.md insight_proposal.tex=$(DOCDIR) $(foreach file,$(TEMPLATE_PROPOSAL),$(file)=$(DOCDIR))
+sshrc-insight.tar.gz dist ctanify: insight_proposal.pdf sshrc-insight.pdf README.md $(foreach version,$(SSHRC_PREVIOUS_VERSIONS),sshrc-insight-$(version).cls)
+	$(CTANIFY) sshrc-insight.ins $^ insight_proposal.tex=$(DOCDIR) $(foreach file,$(TEMPLATE_PROPOSAL),$(file)=$(DOCDIR))
 
 # Remove all generated files
 clean:
-
 	$(RM) sshrc-insight.cls sshrc-insight.glo sshrc-insight.hd sshrc-insight.tar.gz $(SSHRC_INS_FILES) $(foreach ext,$(GENERATED_EXTENSIONS),sshrc-insight.$(ext)) $(foreach ext,$(GENERATED_EXTENSIONS),$(foreach file,$(TEMPLATE_PROPOSAL),$(basename $(file)).$(ext)))
 
 .PHONY: clean dist ctanify
