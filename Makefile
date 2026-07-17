@@ -2,7 +2,7 @@
 # This Makefile can be used to build the sshrc-insight class and
 # package it for distribution on CTAN.
 #
-# Copyright 2024, 2025 Tristan Miller
+# Copyright 2024-2026 Tristan Miller
 #
 # This work may be distributed and/or modified under the
 # conditions of the LaTeX Project Public License, either version 1.3c

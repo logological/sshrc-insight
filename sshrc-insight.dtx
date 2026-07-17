@@ -1,7 +1,7 @@
 % \iffalse meta-comment
 %
-% Copyright 2024, 2025 Tristan Miller
-% -----------------------------------
+% Copyright 2024-2026 Tristan Miller
+% ----------------------------------
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3c
@@ -18,7 +18,7 @@
 \ProvidesFile{sshrc-insight.dtx}
 %</driver>
 %<*class>
-%% Copyright 2024, 2025 Tristan Miller
+%% Copyright 2024-2026 Tristan Miller
 %% Copyright 2021 Steven B. Segletes
 %%
 %% This work may be distributed and/or modified under the
@@ -36,10 +36,10 @@
 %<class>\DeclareRelease{v2024.1.0}{2024-10-12}{sshrc-insight-2024-10-12.cls}
 %<class>\DeclareRelease{2025}{}{sshrc-insight.cls}
 %<class>\DeclareRelease{v2025}{}{sshrc-insight.cls}
-%<class>\DeclareCurrentRelease{v2025.0.0}{2025-08-14}
+%<class>\DeclareCurrentRelease{v2025.0.1}{2026-07-17}
 %<class>\ProvidesClass{sshrc-insight}
 %<*class>
-[2025-08-14 v2025.0.0 Class for SSHRC Insight Grant proposals]
+[2026-07-17 v2025.0.1 Class for SSHRC Insight Grant proposals]
 %</class>
 %
 %<*driver>
@@ -52,6 +52,7 @@
 \addtolength\evensidemargin{6ex}
 \usepackage[T1]{fontenc}
 \usepackage{hologo}
+\usepackage[canadian]{babel}
 \begin{document}
 \DocInput{sshrc-insight.dtx}
 \end{document}
@@ -84,7 +85,7 @@
 %
 % \title{\textsf{sshrc-insight}: A \LaTeX\ class for\\ SSHRC Insight
 % Grant proposals\thanks{This document corresponds to
-% \textsf{sshrc-insight}~\fileversion, dated \filedate. See
+% \textsf{sshrc-insight}~\fileversion, dated \filedate.  See
 % §\ref{sec:version} for an explanation of the versioning scheme.}}
 %
 % \author{Tristan Miller\\
@@ -133,7 +134,7 @@
 % \end{itemize}
 %
 % The current version of \textsf{sshrc-insight} structures and formats
-% proposals according to SSHRC's 2024 call.  It is expected that
+% proposals according to SSHRC's 2025 call.  It is expected that
 % future versions of the class will support the structure and format
 % of future calls, while maintaining backward compatibility.
 %
@@ -196,11 +197,11 @@
 % The optional argument, \texttt{=2025}, indicates that the class
 % should use the specifications from SSHRC's 2025 call for proposals.
 % At present, the only supported specification years are 2024 and
-% 2025, and future versions of this class may support specifications
-% for future years' calls.  The class will use the most recent
-% supported specification in the event that you omit the optional
-% argument; however, this is not recommended because if you later
-% upgrade \textsf{sshrc-insight} to a version that supports a later
+% 2025; future versions of this class may support specifications for
+% future years' calls.  The class will use the most recent supported
+% specification in the event that you omit the optional argument;
+% however, this is not recommended because if you later upgrade
+% \textsf{sshrc-insight} to a version that supports a later
 % specification year, re-compiling your old proposal may result in
 % compilation errors, or incorrect or unexpected formatting.
 % 
@@ -216,7 +217,7 @@
 % system.  If compiling with \hologo{pdfLaTeX}, the class uses the
 % free Times clone provided by the \textsf{newtxtext} and
 % \textsf{newtxmath} packages. (Although this is not strictly in
-% accordance with the application instructions, this is unlikely to
+% accordance with the application instructions, it is unlikely to
 % cause any problems with the funding agency, since the font metrics
 % are virtually identical to the proprietary Times New Roman.)
 %
@@ -257,7 +258,7 @@
 % \cs{subfile} commands (as well as the corresponding template files)
 % for fields and documents that are required by most or all proposals;
 % you should comment out or remove any entries that do not apply to
-% your proposal.
+% your own proposal.
 %
 % You may also wish to include among the \cs{subfile} commands further
 % information or documents that you will be submitting in the
@@ -324,23 +325,23 @@
 % Note that the PDF output of \cs{countchars} is not intended to be
 % used as-is in your final application.  Rather, you should copy and
 % paste its text argument directly from the \LaTeX\ source code into
-% the online application form.  For this reason, please ensure that
-% you write the argument as plain text rather than as \LaTeX\ markup.
+% the online application form.  For this reason, ensure that you write
+% the argument in plain text rather than in \LaTeX\ markup.
 % 
 % \subsection{Bibliographic references and research contributions}\label{sec:bibliographic}
 %
 % It is recommended to use \textsf{biblatex} and Biber for your
-% bibliographic references and citations, and the template proposal
+% bibliographic references and citations; the template proposal
 % assumes that this is how you have things set up.  Put all your
 % \textsf{biblatex} configuration, and all your \cs{addbibresource}
 % macros, in your main document.  You can then use the usual
 % \textsf{biblatex} commands for citing references and printing
-% bibliographies in the subfiles. The
+% bibliographies in the subfiles.  The
 % \texttt{list\_of\_references.tex} file of the template proposal
 % gives an example of how to print a master bibliography for citations
 % across the various subfiles, and the
 % \texttt{research\_contributions.tex} file shows how to print
-% self-contained bibliographies for one's own research contributions,
+% self-contained bibliographies for your own research contributions,
 % broken down according to the categories specified in the application
 % instructions.
 %
@@ -354,7 +355,7 @@
 % the subfiles are compiled individually.  For this reason, it is
 % important that, whenever you add, change, or remove citations and
 % references, you (re)compile the main document \emph{before} you
-% (re)compile the subfiles. It also means that, despite log messages
+% (re)compile the subfiles.  It also means that, despite log messages
 % to the contrary, you never need to run Biber on the subfiles.
 %
 % \subsubsection{Hyperlinks}
@@ -376,8 +377,8 @@
 % identified with a plus sign.  \textsf{sshrc-insight} takes care of
 % this when printing bibliographic references by means of a
 % \textsf{biblatex} data annotation, \texttt{student}.  To use this
-% feature, simply add a \hologo{BibTeX} field in the following format
-% to any entry with a student author:
+% feature, simply add a field in the following format to each
+% \hologo{BibTeX} entry with a student author:
 % \begin{quote}
 %   \texttt{author+an = \{}\meta{n}\texttt{=student} $\big [$
 %   \texttt{;}\meta{n}\texttt{=student} $\big ]$ \dots\ \texttt{\},}
@@ -399,8 +400,8 @@
 % bibliography styles you may have applied):
 % \begin{quote}
 %   Ferenc Farkas\textsuperscript{+}, Lili Lakatos, and Fruzsina
-%   Fekete\textsuperscript{+}. ``A new approach to underwater
-%   basket-weaving''. In: \emph{Journal of Underwater Basket-weaving}
+%   Fekete\textsuperscript{+}.  ``A new approach to underwater
+%   basket-weaving''.  In: \emph{Journal of Underwater Basket-weaving}
 %   (2024), pp.\,107--113.
 % \end{quote}
 % Note that student authors will be marked not just in the reference
@@ -419,7 +420,7 @@
 % asterisk in the left margin. \textsf{sshrc-insight} takes care of
 % this when printing bibliographic references by means of a
 % \textsf{biblatex} keyword, \texttt{sshrc}.  To use this feature,
-% simply add the following \hologo{BibTeX} field to any entry that
+% simply add the following field to each \hologo{BibTeX} entry that
 % resulted from previous SSHRC support:
 % \begin{quote}
 %   \texttt{keywords = \{sshrc\},}
@@ -441,8 +442,8 @@
 % will be formatted in the reference lists as follows (modulo whatever
 % bibliography styles you may have applied):
 % \begin{quote}
-%   \makebox[0pt][r]{\textasteriskcentered~}Lili Lakatos. ``An old
-%   approach to underwater basket-weaving''. In: \emph{Journal of
+%   \makebox[0pt][r]{\textasteriskcentered~}Lili Lakatos.  ``An old
+%   approach to underwater basket-weaving''.  In: \emph{Journal of
 %   Underwater Basket-weaving} (2021), pp.\,21--35.
 % \end{quote}
 %
@@ -471,21 +472,23 @@
 % \subsection{Versioning scheme}\label{sec:version}
 %
 % Each release of the \textsf{sshrc-insight} class carries a version
-% number in the format \textit{year.\allowbreak maj.\allowbreak
-% min}. Here \textit{year} is the latest year of SSHRC's call for
-% proposals whose application specifications are implemented by the
-% class, and \textit{maj} and \textit{min} represent, respectively,
-% major and minor revisions to the class (including any ancillary
-% files, such as the template proposal and documentation).  A major
-% revision is one that includes potentially breaking changes or
-% significant new features; minor revisions are for all other changes.
-% As documented in §\ref{sec:mainpreamble}, the class provides a
-% mechanism that preserves compatibility with earlier versions of the
-% application specifications.
+% number in the format \textit{year.\allowbreak maj.\allowbreak min}.
+% Here \textit{year} is the latest year of SSHRC's call for proposals
+% whose application specifications are implemented by the class, and
+% \textit{maj} and \textit{min} represent, respectively, major and
+% minor revisions to the class (including any ancillary files, such as
+% the template proposal and documentation).  A major revision is one
+% that includes potentially breaking changes or significant new
+% features; minor revisions are for all other changes.  As documented
+% in §\ref{sec:mainpreamble}, the class provides a mechanism that
+% preserves compatibility with earlier versions of the application
+% specifications.
 %
 % \subsection{Version history}
 %
 % \begin{description}
+% \item[v2025.0.1 (2026-07-17)] Minor copy-editing to the
+%   documentation.
 % \item[v2025.0.0 (2025-08-14)] Added support for the 2025
 %   specification year.
 % \item[v2024.1.0 (2024-10-21)] Added support for marking research
@@ -539,7 +542,6 @@
     \xetexorluatexfalse
   \fi
 \fi
-
 %    \end{macrocode}
 %
 % The \textsf{subfiles} package is what allows a proposal to be compiled
@@ -713,10 +715,10 @@
   {
 %    \end{macrocode}
 %
-% To enforce consistency in the labelling/numbering of citations when
-% the proposal is compiled into a single PDFs vs.\ multiple PDFs, use
-% \textsf{biblatex-readbbl} to force subfiles to use the \texttt{bbl}
-% file generated for the main file.
+% To enforce consistency in the labelling\slash numbering of citations
+% when the proposal is compiled into a single PDFs vs.\ multiple PDFs,
+% use \textsf{biblatex-readbbl} to force subfiles to use the
+% \texttt{bbl} file generated for the main file.
 %
 %    \begin{macrocode}
     \ifSubfilesClassLoaded
@@ -989,9 +991,10 @@
 
 %% If you wish, you could include further documents you will be
 %% attaching to the final submission.  For externally generated PDFs,
-%% you should add \usepackage{pdfpages} to the document preamble. Here
-%% is an example of how you might include your STRAC attestation (from
-%% a file named attestation.pdf) and add it to the table of contents:
+%% you should add \usepackage{pdfpages} to the document preamble.
+%% Here is an example of how you might include your STRAC attestation
+%% (from a file named attestation.pdf) and add it to the table of
+%% contents:
 %%
 %% \includepdf[
 %%     pages=-,
