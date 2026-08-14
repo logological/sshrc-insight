@@ -34,12 +34,15 @@
 %<class>\DeclareRelease{2024}{2024-10-12}{sshrc-insight-2024-10-12.cls}
 %<class>\DeclareRelease{v2024}{2024-10-12}{sshrc-insight-2024-10-12.cls}
 %<class>\DeclareRelease{v2024.1.0}{2024-10-12}{sshrc-insight-2024-10-12.cls}
-%<class>\DeclareRelease{2025}{}{sshrc-insight.cls}
-%<class>\DeclareRelease{v2025}{}{sshrc-insight.cls}
-%<class>\DeclareCurrentRelease{v2025.0.1}{2026-07-17}
+%<class>\DeclareRelease{2025}{2026-07-17}{sshrc-insight-2026-07-17.cls}
+%<class>\DeclareRelease{v2025}{2026-07-17}{sshrc-insight-2026-07-17.cls}
+%<class>\DeclareRelease{v2025.0.1}{2026-07-17}{sshrc-insight-2026-07-17.cls}
+%<class>\DeclareRelease{2026}{}{sshrc-insight.cls}
+%<class>\DeclareRelease{v2026}{}{sshrc-insight.cls}
+%<class>\DeclareCurrentRelease{v2026.0.0}{2026-08-13}
 %<class>\ProvidesClass{sshrc-insight}
 %<*class>
-[2026-07-17 v2025.0.1 Class for SSHRC Insight Grant proposals]
+[2026-08-13 v2026.0.0 Class for SSHRC Insight Grant proposals]
 %</class>
 %
 %<*driver>
@@ -59,7 +62,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{220}
+% \CheckSum{222}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -134,7 +137,7 @@
 % \end{itemize}
 %
 % The current version of \textsf{sshrc-insight} structures and formats
-% proposals according to SSHRC's 2025 call.  It is expected that
+% proposals according to SSHRC's 2026 call.  It is expected that
 % future versions of the class will support the structure and format
 % of future calls, while maintaining backward compatibility.
 %
@@ -193,15 +196,15 @@
 % \subsubsection{Preamble}\label{sec:mainpreamble}
 %
 % Your main proposal document should begin with the following line:
-% \begin{quote}\verb|\documentclass{sshrc-insight}[=2025]|\end{quote}
-% The optional argument, \texttt{=2025}, indicates that the class
-% should use the specifications from SSHRC's 2025 call for proposals.
-% At present, the only supported specification years are 2024 and
-% 2025; future versions of this class may support specifications for
-% future years' calls.  The class will use the most recent supported
-% specification in the event that you omit the optional argument;
-% however, this is not recommended because if you later upgrade
-% \textsf{sshrc-insight} to a version that supports a later
+% \begin{quote}\verb|\documentclass{sshrc-insight}[=2026]|\end{quote}
+% The optional argument, \texttt{=2026}, indicates that the class
+% should use the specifications from SSHRC's 2026 call for proposals.
+% At present, the only supported specification years are 2024, 2025,
+% and 2026; future versions of this class may support specifications
+% for future years' calls.  The class will use the most recent
+% supported specification in the event that you omit the optional
+% argument; however, this is not recommended because if you later
+% upgrade \textsf{sshrc-insight} to a version that supports a later
 % specification year, re-compiling your old proposal may result in
 % compilation errors, or incorrect or unexpected formatting.
 % 
@@ -320,7 +323,7 @@
 % the field's length limit in characters:
 % \begin{quote}\cs{countchars}\oarg{length}\marg{text}\end{quote}
 % If the length limit is not specified, it defaults to 3800, which is
-% the limit for all long-answer fields in the 2025 application form.
+% the limit for all long-answer fields in the 2026 application form.
 %
 % Note that the PDF output of \cs{countchars} is not intended to be
 % used as-is in your final application.  Rather, you should copy and
@@ -387,10 +390,11 @@
 % For example, the \hologo{BibTeX} entry
 % \begin{quote}
 % \begin{verbatim}
-% @article{art1,
-%   author    = {Ferenc Farkas and Lili Lakatos and Fruzsina Fekete},
+% @article{vizi2024,
+%   author    = {Viktor Vizi and Karla Kosár and Trixi Takács},
 %   author+an = {1=student;3=student},
-%   title     = {A new approach to underwater basket-weaving},
+%   title     = {Rubik-inspired Topologies for Non-{Euclidean} Basket
+%                Design},
 %   journal   = {Journal of Underwater Basket-weaving},
 %   pages     = {107--113},
 %   year      = 2024,
@@ -399,14 +403,14 @@
 % will be formatted in the reference lists as follows (modulo whatever
 % bibliography styles you may have applied):
 % \begin{quote}
-%   Ferenc Farkas\textsuperscript{+}, Lili Lakatos, and Fruzsina
-%   Fekete\textsuperscript{+}.  ``A new approach to underwater
-%   basket-weaving''.  In: \emph{Journal of Underwater Basket-weaving}
-%   (2024), pp.\,107--113.
+%   Viktor Vizi\textsuperscript{+}, Karla Kosár, and Trixi
+%   Takács\textsuperscript{+}.  ``Rubik-inspired topologies for
+%   non-Euclidean basket design''.  In: \emph{Journal of Underwater
+%   Basket-weaving} (2024), pp.\,107--113.
 % \end{quote}
 % Note that student authors will be marked not just in the reference
 % lists but also in the citations: a citation to the entry above might
-% appear as ``(Farkas\textsuperscript{+} et al., 2024)''.
+% appear as ``(Vizi\textsuperscript{+} et al., 2024)''.
 %
 % \DescribeMacro{\sshrcstudent}
 % Outside bibliographies, the \cs{sshrcstudent} macro can be used for
@@ -430,9 +434,9 @@
 % separated with commas.)  For example, the \hologo{BibTeX} entry
 % \begin{quote}
 % \begin{verbatim}
-% @article{art2,
-%   author    = {Lili Lakatos},
-%   title     = {An old approach to underwater basket-weaving},
+% @article{kosar2021,
+%   author    = {Karla Kosár},
+%   title     = {On the Effects of Paprika Residue on Reed Elasticity},
 %   journal   = {Journal of Underwater Basket-weaving},
 %   pages     = {21--35},
 %   year      = 2021,
@@ -442,9 +446,9 @@
 % will be formatted in the reference lists as follows (modulo whatever
 % bibliography styles you may have applied):
 % \begin{quote}
-%   \makebox[0pt][r]{\textasteriskcentered~}Lili Lakatos.  ``An old
-%   approach to underwater basket-weaving''.  In: \emph{Journal of
-%   Underwater Basket-weaving} (2021), pp.\,21--35.
+%   \makebox[0pt][r]{\textasteriskcentered~}Karla Kosár.  ``On the
+%   effects of paprika residue on reed elasticity''.  In:
+%   \emph{Journal of Underwater Basket-weaving} (2021), pp.\,21--35.
 % \end{quote}
 %
 % \DescribeMacro{\sshrcsupported}
@@ -487,6 +491,10 @@
 % \subsection{Version history}
 %
 % \begin{description}
+% \item[v2026.0.0 (2026-08-13)] Added support for the 2026
+%   specification year.
+% 
+% Minor copy-editing to the documentation.
 % \item[v2025.0.1 (2026-07-17)] Minor copy-editing to the
 %   documentation.
 % \item[v2025.0.0 (2025-08-14)] Added support for the 2025
@@ -777,39 +785,45 @@
 % user-visible strings emitted by \textsf{sshrc-insight}.
 %
 %    \begin{macrocode}
-%% Localizations
+%% Localizations (in the same order as in the application form and instructions)
 \RequirePackage{translations}
-\DeclareTranslation{french}{1. Relevant research contributions over the last six years}{1. Contributions pertinentes à la recherche faites au cours des six dernières années}
-\DeclareTranslation{french}{2. Other research contributions}{2. Autres contributions à la recherche}
-\DeclareTranslation{french}{3. Most significant career research contributions}{3. Plus importantes contributions à la recherche faites au cours d'une carrière}
-\DeclareTranslation{french}{4. Contributions to training}{4. Contributions à la formation}
-\DeclareTranslation{french}{Budget Justification}{Justification du budget}
-\DeclareTranslation{french}{Career Interruptions and Special Circumstances}{Interruptions de carrière et circonstances spéciales}
-\DeclareTranslation{french}{Context}{Contexte}
-\DeclareTranslation{french}{Creative outputs}{Réalisations artistiques}
-\DeclareTranslation{french}{Description of previous and ongoing research results}{Description des résultats de recherche les plus récents ou en cours}
-\DeclareTranslation{french}{Description of proposed student training strategies}{Description des stratégies proposées de formation des étudiants}
-\DeclareTranslation{french}{Description of the research team}{Description de l'équipe de recherche}
+\DeclareTranslation{french}{Response to Previous Critiques}{Réponse à des critiques précédentes}
+\DeclareTranslation{french}{Request for Multi/Interdisciplinary Evaluation}{Évaluation interdisciplinaire/multidisciplinaire}
+\DeclareTranslation{french}{Summary of Proposal}{Résumé du projet}
 \DeclareTranslation{french}{Detailed Description}{Description détaillée}
-\DeclareTranslation{french}{Exclusion of Potential Reviewers}{Exclusion d'évaluateurs éventuels}
-\DeclareTranslation{french}{Expected Outcomes}{Résultats escomptés}
-\DeclareTranslation{french}{Forthcoming contributions}{Contributions à venir}
+  \DeclareTranslation{french}{Objectives}{Objectifs}
+  \DeclareTranslation{french}{Context}{Contexte}
+  \DeclareTranslation{french}{Methodology}{Méthodologie}
 \DeclareTranslation{french}{Knowledge Mobilization Plan}{Plan de mobilisation des connaissances}
 \DeclareTranslation{french}{List of References}{Liste des références}
-\DeclareTranslation{french}{Methodology}{Méthodologie}
-\DeclareTranslation{french}{Nonrefereed contributions}{Contributions non soumises à des comités de lecture}
-\DeclareTranslation{french}{Objectives}{Objectifs}
-\DeclareTranslation{french}{Other refereed contributions}{Autres contributions soumises à des comités de lecture}
-\DeclareTranslation{french}{Previous Critiques}{Réponse à des critiques précédentes}
-\DeclareTranslation{french}{Refereed contributions}{Publications soumises à des comités de lecture}
-\DeclareTranslation{french}{Request for Multi/Interdisciplinary Evaluation}{Demande d'évaluation interdisciplinaire ou multidisciplinaire}
+\DeclareTranslation{french}{Research Team, Student Training, Previous Output}{Équipe, formation (étudiants), résultats}
+  \DeclareTranslation{french}{Description of the research team}{Description de l'équipe de recherche}
+  \DeclareTranslation{french}{Description of previous and ongoing research results}{Description des résultats de recherche les plus récents ou en cours}
+  \DeclareTranslation{french}{Description of proposed student training strategies}{Description des stratégies proposées de formation des étudiantes et étudiants}
+\DeclareTranslation{french}{Budget Justification}{Justification du budget}
+\DeclareTranslation{french}{Expected Outcomes Summary}{Sommaire des résultats escomptés}
+\DeclareTranslation{french}{Exclusion of Potential Reviewers}{Exclusion d'évaluateurs éventuels}
 \DeclareTranslation{french}{Research Contributions}{Contributions à la recherche}
-\DeclareTranslation{french}{Research Team, Student Training, Previous Output}{Équipe de recherche, résultats les plus récents et formation des étudiants}
-\DeclareTranslation{french}{Research-creation Support Material}{Documents d'appui liés à la recherche-création}
-\DeclareTranslation{french}{Response to Previous Critiques}{Réponse à des critiques précédentes}
-\DeclareTranslation{french}{Summary of Proposal}{Résumé de la proposition}
+  \DeclareTranslation{french}{1. Relevant research contributions over the last six years}{1. Contributions pertinentes à la recherche faites au cours des six dernières années}
+    \DeclareTranslation{french}{Refereed contributions}{Publications soumises à des comités de lecture}
+    \DeclareTranslation{french}{Other refereed contributions}{Autres publications soumises à des comités de lecture}
+    \DeclareTranslation{french}{Nonrefereed contributions}{Publications non soumises à des comités de lecture}
+    \DeclareTranslation{french}{Forthcoming contributions}{Publications à venir}
+    \DeclareTranslation{french}{Creative outputs}{Réalisations artistiques}
+  \DeclareTranslation{french}{2. Other research contributions}{2. Autres contributions à la recherche}
+  \DeclareTranslation{french}{3. Most significant career research contributions}{3. Plus importantes contributions à la recherche faites au cours d'une carrière}
+  \DeclareTranslation{french}{4. Contributions to training}{4. Contributions à la formation}
+\DeclareTranslation{french}{Career Interruptions and Special Circumstances}{Interruptions de carrière et circonstances spéciales}
+\DeclareTranslation{french}{Research-Creation Support Material}{Matériel d'appui lié à la recherche-création}
+
+%% Other miscellaneous localizations
 \DeclareTranslation{french}{Character count:}{Nombre de caractères:}
 \DeclareTranslation{french}{of}{sur}
+
+%% Obsolete localizations (only from previous years' applications)
+\DeclareTranslation{french}{Previous Critiques}{Réponse à des critiques précédentes}
+\DeclareTranslation{french}{Research-creation Support Material}{Matériel d'appui lié à la recherche-création}
+\DeclareTranslation{french}{Expected Outcomes}{Résultats escomptés}
 %    \end{macrocode}
 %\iffalse
 %</class>
@@ -862,7 +876,7 @@
 %<*expectedoutcomes>
 \documentclass[insight_proposal]{subfiles}
 \begin{document}
-\subfiletitle{Expected Outcomes}
+\subfiletitle{Expected Outcomes Summary}
 
 %% Enter form text in the command argument below.
 \countchars{}
@@ -910,7 +924,7 @@
 \end{document}
 %</previouscritiques>
 %<*insightproposal>
-\documentclass{sshrc-insight}[=2025]
+\documentclass{sshrc-insight}[=2026]
 
 %% This is the main file for a skeleton SSHRC Insight Grant proposal
 %% using the sshrc-insight class.  Compile this file to get a complete
@@ -1090,7 +1104,7 @@
 %<*research-creationsupportmaterial>
 \documentclass[insight_proposal]{subfiles}
 \begin{document}
-\subfiletitle{Research-creation Support Material}
+\subfiletitle{Research-Creation Support Material}
 
 %% Enter document text here.
 
@@ -1126,18 +1140,18 @@
 \end{document}
 %</summary>
 %<*insightproposalbib>
-@article{art1,
-  author    = {Ferenc Farkas and Lili Lakatos and Fruzsina Fekete},
+@article{vizi2024,
+  author    = {Viktor Vizi and Karla Kosár and Trixi Takács},
   author+an = {1=student;3=student},
-  title     = {A new approach to underwater basket-weaving},
+  title     = {Rubik-inspired Topologies for Non-{Euclidean} Basket Design},
   journal   = {Journal of Underwater Basket-weaving},
   pages     = {107--113},
   year      = 2024,
 }
 
-@article{art2,
-  author    = {Lili Lakatos},
-  title     = {An old approach to underwater basket-weaving},
+@article{kosar2021,
+  author    = {Karla Kosár},
+  title     = {On the Effects of Paprika Residue on Reed Elasticity},
   journal   = {Journal of Underwater Basket-weaving},
   pages     = {21--35},
   year      = 2021,
